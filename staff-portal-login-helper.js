@@ -1,5 +1,8 @@
 (function() {
 
+  // The username will be forced to <username>@<loginDomain>
+  var loginDomain = 'merceru.local'
+
   var onSubmit = function() {
     var usernameField = document.getElementById('username');
 
@@ -8,13 +11,25 @@
       return;
     }
 
-    console.log(usernameField);
-    console.info('value = ' + usernameField.value);
+    // console.log(usernameField);
+    // console.info('value = ' + usernameField.value);
 
     var usernameRegex = /(?:[^\\]*\\)?([^\\@]*)(?:@[^@]*)?/i;
-    var cleanUsername = ;
+    var cleanUsername = usernameField.value.match(usernameRegex);
 
-    console.info('clean username = ' + cleanUsername);
+    // console.dir(cleanUsername);
+
+    if (2 == cleanUsername.length) {
+      cleanUsername = cleanUsername[1];
+    }
+
+    // console.info('clean username = ' + cleanUsername);
+
+    var properUsername = cleanUsername + '@' + loginDomain;
+
+    // console.info('proper username = ' + properUsername);
+
+    usernameField.value = properUsername;
   }
 
   var formSubmitWatcher = function() {
@@ -27,7 +42,7 @@
       return;
     }
 
-    console.log(loginForm);
+    // console.log(loginForm);
 
     loginForm.addEventListener('submit', onSubmit);
   }
