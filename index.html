@@ -1,0 +1,172 @@
+<!doctype html>
+<html ng-app="app" xmlns="http://www.w3.org/1999/xhtml" class="ng-scope">
+
+<head>
+    <style type="text/css">
+        @charset "UTF-8";
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak,
+        .ng-hide:not(.ng-hide-animate) {
+            display: none !important;
+        }
+
+        ng\:form {
+            display: block;
+        }
+
+        .ng-animate-shim {
+            visibility: hidden;
+        }
+
+        .ng-anchor {
+            position: absolute;
+        }
+    </style>
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-eval' 'unsafe-inline'; img-src 'self' data:">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"> -->
+
+    <title>CampusNexus Sign in</title>
+    <!-- <link href="/identity/assets/styles.min.css" rel="stylesheet"> -->
+
+    <!-- <link href="/Styles/Open-sans.css" rel="stylesheet">
+    <link href="/Styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/Styles/font-awesome.min.css" rel="stylesheet">
+    <link href="/Styles/toastr.min.css" rel="stylesheet">
+    <link href="/Styles/SignIn.css" rel="stylesheet"> -->
+
+    <!-- <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Scripts/angular.js"></script> -->
+
+    <!-- <script type="text/javascript" src="/Scripts/toastr.min.js"></script> -->
+</head>
+
+<body ng-controller="LayoutCtrl" class="ng-scope" lang="en">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="display: none">
+        <div class="navbar-header">
+            <a href="/">
+                <span class="navbar-brand">CampusNexus Sign in</span>
+            </a>
+        </div>
+        <ul class="nav navbar-nav ng-hide" ng-show="model.currentUser">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle ng-binding" data-toggle="dropdown">
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="https://staffsts-prod.mercer.edu/identity/logout">Logout</a>
+                    </li>
+                    <li class="divider ng-hide" ng-show="model.loginWithDifferentAccountUrl"></li>
+                    <li>
+                        <a href="" ng-show="model.loginWithDifferentAccountUrl" class="ng-hide">Login With Different Account</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="band"></div>
+    <div class="container page-login">
+        <div class="page-header">
+
+        </div>
+
+        <div class="row ng-hide" ng-show="model.errorMessage">
+            <div class="col-md-12 col-sm-12" style="display: none">
+                <ul>
+                    <li class="ng-binding">
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="login_box form-inline" ng-show="model.loginUrl">
+
+            <div class="outter">
+                <!-- <img src="/images/CampusNexus-SVG.svg" class="logoImage" alt=""> -->
+            </div>
+
+            <form name="form" method="post" action="/identity/login?signin=65834cfec8b0786d15e617684b0a832f" class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength">
+                <input name="idsrv.xsrf" value="uejqSKPpIuCU-8o-pl3fOUQKLrgH-fwlLIWRVNx_AmW9y0AejxPpX2gfzvg37PuNrDZwG2g4sesEL3icihrcGmr3czKfAfiUpTf0aFNjh0I"
+                    autocomplete="off" token="model.antiForgery" class="ng-isolate-scope" type="hidden">
+
+                <fieldset>
+                    <div class="login_control">
+                        <div class="control form-group input-wrapper">
+
+                            <input name="username" required="" autofocus="" id="username" accesskey="u" placeholder="User name" class="text form-control input-width ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength"
+                                ng-model="model.username" maxlength="100" type="text">
+                        </div>
+                        <div class="control form-group input-wrapper">
+
+                            <input id="password" required="" name="password" class="text form-control input-width ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-valid-maxlength"
+                                accesskey="p" placeholder="Password" ng-model="model.password" maxlength="100" autocomplete="off"
+                                focus-if="model.username" type="password">
+                        </div>
+
+                        <ul class="list-unstyled">
+                            <!-- ngRepeat: link in model.additionalLinks -->
+                            <li ng-repeat="link in model.additionalLinks" class="ng-scope">
+                                <b>
+                                    <a ng-href="https://my.mercer.edu/secure/staff/loginsta.aspx?signin=65834cfec8b0786d15e617684b0a832f&amp;nav=5"
+                                        class="ng-binding" href="https://my.mercer.edu/secure/staff/loginsta.aspx?signin=65834cfec8b0786d15e617684b0a832f&amp;nav=5">Forgot your password?</a>
+                                </b>
+                            </li>
+                            <!-- end ngRepeat: link in model.additionalLinks -->
+                        </ul>
+
+                        <div class="form-group login-remember" ng-show="model.allowRememberMe" style="display: none">
+                            <label for="rememberMe">
+                                <input id="rememberMe" name="rememberMe" ng-model="model.rememberMe" value="true" class="ng-pristine ng-untouched ng-valid ng-empty"
+                                    type="checkbox">
+                                <strong>Remember My Login</strong>
+                            </label>
+                        </div>
+                        <div align="center">
+                            <button class="btn-login" id="btnLogin">Sign in</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </div>
+
+        <div class="col-md-6 col-sm-6 external-providers ng-hide" ng-show="model.externalProviders.length">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">External Login</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <!-- ngRepeat: provider in model.externalProviders -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <script id="modelJson" type="application/json">
+        {&quot;loginUrl&quot;:&quot;/identity/login?signin=65834cfec8b0786d15e617684b0a832f&quot;,&quot;antiForgery&quot;:{&quot;name&quot;:&quot;idsrv.xsrf&quot;,&quot;value&quot;:&quot;uejqSKPpIuCU-8o-pl3fOUQKLrgH-fwlLIWRVNx_AmW9y0AejxPpX2gfzvg37PuNrDZwG2g4sesEL3icihrcGmr3czKfAfiUpTf0aFNjh0I&quot;},&quot;allowRememberMe&quot;:true,&quot;rememberMe&quot;:false,&quot;username&quot;:null,&quot;externalProviders&quot;:[],&quot;additionalLinks&quot;:[{&quot;type&quot;:&quot;link&quot;,&quot;text&quot;:&quot;Forgot your password?&quot;,&quot;href&quot;:&quot;https://my.mercer.edu/secure/staff/loginsta.aspx?signin=65834cfec8b0786d15e617684b0a832f&amp;nav=5&quot;}],&quot;clientName&quot;:null,&quot;clientUrl&quot;:null,&quot;clientLogoUrl&quot;:null,&quot;errorMessage&quot;:null,&quot;requestId&quot;:&quot;facbc166-532a-4d11-b7c8-e9e82a60cb8b&quot;,&quot;siteUrl&quot;:&quot;https://staffsts-prod.mercer.edu/identity/&quot;,&quot;siteName&quot;:&quot;CampusNexus Sign in&quot;,&quot;currentUser&quot;:null,&quot;logoutUrl&quot;:&quot;https://staffsts-prod.mercer.edu/identity/logout&quot;,&quot;custom&quot;:null}
+    </script> -->
+
+    <!-- <script type="text/javascript" src="/Scripts/UIStringResources.js"></script>
+    <script type="text/javascript" src="/Scripts/staffSts.js"></script>
+    <script type="text/javascript" src="/Scripts/identityServer.js"></script> -->
+
+    <script src="./staff-portal-login-helper.js"></script>
+
+</body>
+
+</html>

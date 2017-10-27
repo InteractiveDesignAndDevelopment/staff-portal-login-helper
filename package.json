@@ -1,0 +1,22 @@
+{
+  "name": "staff-portal-login-helper",
+  "version": "1.0.0",
+  "description": "Adds domain when logging in",
+  "main": "index.js",
+  "scripts": {
+    "test": "live-server ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InteractiveDesignAndDevelopment/staff-portal-login-helper.git"
+  },
+  "author": "Interactive Design & Development",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/InteractiveDesignAndDevelopment/staff-portal-login-helper/issues"
+  },
+  "homepage": "https://github.com/InteractiveDesignAndDevelopment/staff-portal-login-helper#readme",
+  "dependencies": {
+    "local-server": "^0.1.8"
+  }
+}
